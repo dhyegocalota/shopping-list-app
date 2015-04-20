@@ -10,7 +10,7 @@ describe('ProductsService', function() {
   }));
 
   describe('#fetchAll', function() {
-    describe('when there any product', function() {
+    describe('when there are any product', function() {
       it('should return an empty array', function() {
         expect(Products.fetchAll()).toEqual([]);
       });
@@ -244,7 +244,7 @@ describe('ProductsService', function() {
   });
 
   describe('#amountTotal', function() {
-    describe('when there any product', function() {
+    describe('when there are any product', function() {
       beforeEach(function() {
         expect(Products.fetchAll()).toEqual([]);
       });

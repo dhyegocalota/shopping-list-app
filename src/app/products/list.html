@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="jumbotron">
+      <h2>Welcome to the Shopping List App.</h2>
+      <p><a class="btn btn-primary btn-lg" href="#/products/add" role="button"><span class="glyphicon glyphicon-plus"></span> Add product</a></p>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="(id, product) in productsVm.products | filter:search">
+          <td>{{ product.name }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>
+            <a class="btn btn-info" ng-href="#/products/{{ id }}" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+            <a class="btn btn-danger" role="button"><span class="glyphicon glyphicon-minus"></span> Remove</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Total: {{ productsVm.productsAmount | currency }}</h2>
+  </div>
+</div>

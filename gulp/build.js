@@ -19,7 +19,7 @@ gulp.task('build:partials', function() {
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'app'
+      module: 'shoppingListApp'
     }))
     .pipe(gulp.dest(paths.tmp + '/partials/'));
 });

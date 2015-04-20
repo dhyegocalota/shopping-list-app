@@ -72,6 +72,57 @@ describe('ProductsService', function() {
     });
   });
 
+  describe('#update', function() {
+    describe('when the product does not exist', function() {
+      it('should throw an error', function() {
+        expect(function() {
+          Products.update(99, {});
+        }).toThrowError();
+      });
+    });
+
+    describe('when the product does exist', function() {
+      beforeEach(function() {
+        Products.add({
+          name: 'a',
+          price: 9.99,
+          quantity: 1
+        });
+      });
+
+      describe('and the second argument is not given', function() {
+        it('should return false', function() {
+          expect(Products.update(0)).toBe(false);
+        });
+      });
+
+      describe('and the second argument is given', function() {
+        describe('and it is not a object', function() {
+          it('should return false', function() {
+            expect(Products.update(0, 'abc')).toBe(false);
+          });
+        });
+
+        describe('and it is a object', function() {
+          it('should return true', function() {
+            expect(Products.update(0, {})).toBe(true);
+          });
+
+          it('should merge it', function() {
+            Products.update(0, {
+              name: 'b'
+            });
+            expect(Products.fetch(0)).toEqual({
+              name: 'b',
+              price: 9.99,
+              quantity: 1
+            });
+          });
+        });
+      });
+    });
+  });
+
   describe('#remove', function() {
     beforeEach(function() {
       expect(Products.fetchAll()).toEqual([]);

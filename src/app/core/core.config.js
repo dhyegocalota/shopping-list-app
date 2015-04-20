@@ -2,7 +2,10 @@
   'use strict';
 
 angular.module('shoppingListApp.core')
-  .config(['$routeProvider', CoreConfig]);
+  .config([
+    '$routeProvider',
+    CoreConfig
+  ]);
 
 function CoreConfig($routeProvider) {
   $routeProvider

@@ -9,6 +9,7 @@ function ProductsFactory() {
 
   return {
     add: add,
+    update: update,
     remove: remove,
     fetchAll: fetchAll,
     fetch: fetch,
@@ -19,6 +20,18 @@ function ProductsFactory() {
   function add(product) {
     products.push(product);
     return this;
+  }
+
+  function update(id, attributes) {
+    var product = this.fetch(id);
+    if (!product) {
+      throw new Error('Product not found');
+    }
+    if (angular.isUndefined(attributes) || !angular.isObject(attributes)) {
+      return false;
+    }
+    products[id] = angular.extend(product, attributes);
+    return true;
   }
 
   function remove(id) {

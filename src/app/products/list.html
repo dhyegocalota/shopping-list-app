@@ -18,7 +18,7 @@
           <td>{{ product.quantity }}</td>
           <td>
             <a class="btn btn-info" ng-href="#/products/{{ id }}" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-            <a class="btn btn-danger" role="button"><span class="glyphicon glyphicon-minus"></span> Remove</a>
+            <a class="btn btn-danger" role="button" ng-click="productsVm.remove(id)"><span class="glyphicon glyphicon-minus"></span> Remove</a>
           </td>
         </tr>
       </tbody>

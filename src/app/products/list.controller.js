@@ -3,19 +3,26 @@
 
 angular.module('shoppingListApp.products')
   .controller('ProductsListController', [
+    '$scope',
     'Products',
     ProductsListController
   ]);
 
-function ProductsListController(Products) {
+function ProductsListController($scope, Products) {
   var vm = this;
 
-  function freshProducts() {
-    vm.products = Products.fetchAll();
-    vm.productsAmount = Products.amountTotal();
-  }
+  vm.products = Products.fetchAll();
+  vm.productsAmount = Products.amountTotal();
 
-  freshProducts();
+  vm.remove = function(id) {
+    Products.remove(id);
+  };
+
+  $scope.$watchCollection(function() {
+    return vm.products;
+  }, function() {
+    vm.productsAmount = Products.amountTotal();
+  });
 }
 
 }());

@@ -2,12 +2,14 @@
 
 describe('ProductsListController', function() {
   var Products;
+  var $scope;
 
   function controller() {
     var listController;
     inject(function($rootScope, $controller) {
+      $scope = $rootScope.$new();
       listController = $controller('ProductsListController', {
-        $scope: $rootScope.$new()
+        $scope: $scope
       });
     });
     return listController;
@@ -30,6 +32,25 @@ describe('ProductsListController', function() {
     it('should be the return of Products#amountTotal', function() {
       spyOn(Products, 'amountTotal').and.returnValue(50.0);
       expect(controller().productsAmount).toBe(50.0);
+    });
+
+    describe('when $scope is digested', function() {
+      it('should be Products#amountTotal', function() {
+        spyOn(Products, 'amountTotal').and.returnValues(10, 15);
+        var listController = controller();
+        expect(listController.productsAmount).toBe(10);
+
+        $scope.$digest();
+        expect(listController.productsAmount).toBe(15);
+      });
+    });
+  });
+
+  describe('#removeProduct', function() {
+    it('should call Products#remove', function() {
+      spyOn(Products, 'remove');
+      controller().remove(1);
+      expect(Products.remove).toHaveBeenCalledWith(1);
     });
   });
 });

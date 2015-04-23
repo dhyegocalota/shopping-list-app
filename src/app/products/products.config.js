@@ -33,8 +33,9 @@ function ProductsConfig($routeProvider) {
       resolve: {
         product: ['$q', '$route', 'Products', function($q, $route, Products) {
           return $q(function(resolve, reject) {
-            var product;
-            if (product = Products.fetch($route.current.params.id)) {
+            var product = Products.fetch($route.current.params.id);
+
+            if (product) {
               resolve(product);
             } else {
               reject();

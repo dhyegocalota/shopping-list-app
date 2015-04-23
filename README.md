@@ -1,4 +1,4 @@
-# Shopping list app
+# Shopping list app [![Build Status](https://travis-ci.org/dhyegofernando/shopping-list-app.svg)](https://travis-ci.org/dhyegofernando/shopping-list-app)
 It is a Angular webapp which has been written with the purpose of studying. Feel free to download and use.
 
 ## Demo

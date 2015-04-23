@@ -51,8 +51,9 @@ function ProductsFactory() {
   }
 
   function amount(id) {
-    var product;
-    if (product = this.fetch(id)) {
+    var product = this.fetch(id);
+
+    if(product) {
       return product.price * product.quantity;
     }
   }

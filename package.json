@@ -2,7 +2,12 @@
   "name": "shoppingListApp",
   "private": true,
   "dependencies": {},
+  "scripts": {
+    "install": "bower install",
+    "test": "gulp test"
+  },
   "devDependencies": {
+    "bower": "^1.4.1",
     "browser-sync": "~1.7.1",
     "chalk": "~0.5.1",
     "connect-modrewrite": "^0.7.9",

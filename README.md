@@ -1,4 +1,4 @@
-# Shopping list app
+# Shopping list app [![Build Status](https://travis-ci.org/dhyegofernando/shopping-list-app.svg)](https://travis-ci.org/dhyegofernando/shopping-list-app)
 It is a Angular webapp which has been written with the purpose of studying. Feel free to download and use.
 
 ## Demo
@@ -10,17 +10,17 @@ You can check it out [here](http://dhyegofernando.github.io/shopping-list-app/).
    $ git clone https://github.com/dhyegofernando/shopping-list-app.git
    ```
 
-5. Navigate to the repository folder
+2. Navigate to the repository folder
    ```sh
    $ cd shopping-list-app
    ```
 
-6. Install dependencies
+3. Install dependencies
    ```sh
    $ npm install & bower install
    ```
 
-7. Serve the presentation and monitor source files for changes
+4. Serve the presentation and monitor source files for changes
    ```sh
    $ gulp serve
    ```

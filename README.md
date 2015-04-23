@@ -1,6 +1,9 @@
 # Shopping list app
 It is a Angular webapp which has been written with the purpose of studying. Feel free to download and use.
 
+## Demo
+You can check it out [here](http://dhyegofernando.github.io/shopping-list-app/).
+
 ## Setup
 1. Clone the repository
    ```sh
